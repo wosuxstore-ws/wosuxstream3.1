@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Live match card (Phase 42), shown under the top banner only while it is switched on in admin.php.
+     Left: picture with a small camera badge. Middle: heading, time range, progress bar. Right: chevron.
+     The whole card is one click target (opens the channel chosen in admin.php); root = bg_card, so the TV focus ring is the usual one. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/screen_pad"
+    android:layout_marginTop="4dp"
+    android:layout_marginEnd="@dimen/screen_pad"
+    android:layout_marginBottom="8dp"
+    android:background="@drawable/bg_card"
+    android:clickable="true"
+    android:defaultFocusHighlightEnabled="false"
+    android:focusable="true"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="12dp">
+
+    <!-- Rounded picture box (the background shape also clips the picture to rounded corners) -->
+    <FrameLayout
+        android:id="@+id/liveThumb"
+        android:layout_width="@dimen/live_thumb_w"
+        android:layout_height="@dimen/live_thumb_h"
+        android:background="@drawable/bg_live_thumb"
+        android:clipToOutline="true">
+
+        <ImageView
+            android:id="@+id/liveImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:importantForAccessibility="no"
+            android:scaleType="centerCrop" />
+
+        <ImageView
+            android:id="@+id/liveBadge"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:layout_gravity="top|start"
+            android:layout_margin="6dp"
+            android:background="@drawable/bg_live_badge"
+            android:importantForAccessibility="no"
+            android:padding="6dp"
+            android:src="@drawable/ic_live_cam" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/liveTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="@color/text"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/liveTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/text_dim"
+            android:textSize="16sp"
+            android:visibility="gone" />
+
+        <!-- Only visible when admin.php gave a start and an end time -->
+        <ProgressBar
+            android:id="@+id/liveProgress"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:layout_marginTop="12dp"
+            android:importantForAccessibility="no"
+            android:indeterminate="false"
+            android:max="1000"
+            android:maxHeight="4dp"
+            android:minHeight="4dp"
+            android:progressDrawable="@drawable/bg_live_progress"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="8dp"
+        android:importantForAccessibility="no"
+        android:src="@drawable/ic_chevron_right" />
+</LinearLayout>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Height of the top banner strip on Home (phones); wider screens: values-w600dp -->
+    <dimen name="ad_banner_h">100dp</dimen>
+</resources>

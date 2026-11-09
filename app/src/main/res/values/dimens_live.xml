@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Picture of the live match card (Phase 42); wider screens: values-w600dp -->
+    <dimen name="live_thumb_w">120dp</dimen>
+    <dimen name="live_thumb_h">80dp</dimen>
+</resources>
